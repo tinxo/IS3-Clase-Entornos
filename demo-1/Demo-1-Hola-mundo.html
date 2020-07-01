@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo 1</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="demo-1">Demo 1</h1>
+<h2 id="hola-mundo-desde-docker-usando-python">Hola mundo desde docker usando python</h2>
+<h3 id="pre-requisitos">Pre-requisitos</h3>
+<ul>
+<li>Instalar docker. <a href="https://docs.docker.com/get-docker/">Tutorial</a></li>
+</ul>
+<h3 id="descripción-del-ejemplo">Descripción del ejemplo</h3>
+<p>La idea es ejecutar un &quot;Hola mundo&quot; usando python desde un contenedor docker. No tiene mayor complejidad pero sirve para tener una idea básica de la dinámica de trabajo.</p>
+<h3 id="ejemplo-a-el-más-básico">Ejemplo A (el más básico)</h3>
+<p>Abrir una terminal y escribir:</p>
+<pre><code class="language-bash"><div>    docker run --rm -it python:3 python
+</div></code></pre>
+<p>Qué hicimos ahí?</p>
+<ul>
+<li><code>docker run</code> sirve para ejecutar un contenedor.</li>
+<li><code>--rm</code> indica que se elimina apenas lo terminamos de usar, no &quot;queda guardado&quot; para usarlo después.</li>
+<li><code>-it</code> indica que el contenedor va a &quot;tomar&quot; la terminal en donde estamos ejecutando el comando y vamos a poder interactuar con él.</li>
+<li><code>python:3</code> es el nombre de la imagen con la que queremos generar el contenedor.</li>
+<li><code>python</code> es el comando que queremos ejecutar cuando inicia el contenedor, en este caso el intérprete interactivo de python.</li>
+</ul>
+<p>En qué resulta todo eso?</p>
+<p>Tenemos python ejecutándose en una versión (<em>3.8.0 en este caso</em>) idéntica en todas las estaciones de trabajo de los <em>devs</em>. Pero esto es muy básico, veamos algo más elaborado.</p>
+<hr>
+<h3 id="ejemplo-b-una-salida-más-elegante">Ejemplo B (Una salida más elegante)</h3>
+<p>Generar un archivo <strong><a href="http://hola.py">hola.py</a></strong> con el siguiente contenido:</p>
+<pre><code class="language-python"><div>print(<span class="hljs-string">'Hola mundo!'</span>)
+</div></code></pre>
+<p>Ahora en la misma terminal de antes ejecutar:</p>
+<pre><code class="language-bash"><div>docker run --rm -it -v $(<span class="hljs-built_in">pwd</span>):/src python:3 python /src/hola.py
+</div></code></pre>
+<p>Qué hay de nuevo?</p>
+<ul>
+<li><code>-v $(pwd):/src</code> indica que queremos montar un <strong>volumen</strong> en el contenedor, que es básicamente la forma de dar persistencia a los archivos. En este caso hace que se refleje el contenido de la carpeta actual (<code>$(pwd)</code> en la ubicación <code>/src</code>).</li>
+<li>Como el archivo <strong><a href="http://hola.py">hola.py</a></strong> ahora está en el contenedor, el final del comando cambia para pedir que el intérprete ejecute ese archivo directamente.</li>
+</ul>
+<p>Mismo resultado, diferentes formas:</p>
+<p>En este caso, el código a ejecutar está en un archivo, que podrían ser varios, y al momento de construir el contenedor se copia hacia el mismo y se ejecuta con todo el ambiente (librerías, frameworks, configuraciones) que esté definido dentro del contenedor.</p>
+
+    </body>
+    </html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo 3</title>
+        <style>
+</style>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+        
+    </head>
+    <body class="vscode-light">
+        <h1 id="demo-3">Demo 3</h1>
+<h2 id="usando-docker-en-un-entorno-online">Usando Docker en un entorno online</h2>
+<h3 id="pre-requisitos">Pre-requisitos</h3>
+<ul>
+<li>Generar una cuenta en <a href="https://labs.play-with-docker.com/">Play With Docker</a> (PWD)</li>
+</ul>
+<h3 id="descripción-del-ejemplo">Descripción del ejemplo</h3>
+<p>En este caso se va a trabajar sobre una versión online de Docker para no tener que hacer una instalación en su PC.
+Se mostrarán dos ejemplos con otros lenguajes.</p>
+<h3 id="caso-1---php">Caso 1 - PHP</h3>
+<p>Para comenzar se debería buscar una imagen compatible para lograr imprimir un mensaje de &quot;Hola mundo&quot; con el lenguaje PHP.</p>
+<p>Por ejemplo desde <a href="https://hub.docker.com/search?q=&amp;type=image">Docker Hub</a> se puede usar la imagen oficial de <a href="https://hub.docker.com/_/php">PHP</a>.</p>
+<p>Paso a paso:</p>
+<ol>
+<li>
+<p>Una vez abierta la sesión de trabajo en PWD se genera una <strong>nueva instancia</strong>.</p>
+</li>
+<li>
+<p>Se debe hacer clic en el botón <strong>Editor</strong> para poder ingresar el contenido del archivo a ejecutar.</p>
+</li>
+<li>
+<p>Antes de eso, en la consola se genera un nuevo archivo .php con el comando <strong>touch</strong>. Por ejemplo: <code>touch index.php</code>.</p>
+</li>
+<li>
+<p>Se vuelve a la ventana de edición y se carga el contenido del archivo:</p>
+<pre><code class="language-php"><div><span class="hljs-meta">&lt;?php</span>
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"Hola mundo desde PHP!\n"</span>;
+<span class="hljs-meta">?&gt;</span>
+</div></code></pre>
+</li>
+<li>
+<p>Se cierra la ventana de edición y se procede a ejecutar el script en un contenedor de la imagen oficial de PHP (según explica la documentación):</p>
+<pre><code class="language-bash"><div>docker run -it --rm --name my-running-script -v <span class="hljs-string">"<span class="hljs-variable">$PWD</span>"</span>:/usr/src/myapp -w /usr/src/myapp php:7.4-cli php index.php
+</div></code></pre>
+</li>
+</ol>
+<hr>
+<h3 id="caso-2---javascript">Caso 2 - Javascript</h3>
+<p>Para comenzar se debería buscar una imagen compatible para lograr imprimir un mensaje de &quot;Hola mundo&quot; con el lenguaje JS.</p>
+<p>Por ejemplo desde <a href="https://hub.docker.com/search?q=&amp;type=image">Docker Hub</a> se puede usar la imagen oficial de <a href="https://hub.docker.com/_/node">Node.js</a>.</p>
+<p>Paso a paso:</p>
+<ol>
+<li>
+<p>Una vez abierta la sesión de trabajo en PWD se genera una <strong>nueva instancia</strong>.</p>
+</li>
+<li>
+<p>Se debe hacer clic en el botón <strong>Editor</strong> para poder ingresar el contenido del archivo a ejecutar.</p>
+</li>
+<li>
+<p>Antes de eso, en la consola se genera un nuevo archivo .php con el comando <strong>touch</strong>. Por ejemplo: <code>touch index.js</code>.</p>
+</li>
+<li>
+<p>Se vuelve a la ventana de edición y se carga el contenido del archivo:</p>
+<pre><code class="language-javascript"><div><span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Hola mundo desde JS!"</span>);
+</div></code></pre>
+</li>
+<li>
+<p>Se cierra la ventana de edición y se procede a ejecutar el script en un contenedor de la imagen oficial de Node (según explica la documentación en <a href="https://github.com/nodejs/docker-node/blob/master/README.md#how-to-use-this-image">GitHub</a>):</p>
+<pre><code class="language-bash"><div>docker run -it --rm --name my-running-script -v <span class="hljs-string">"<span class="hljs-variable">$PWD</span>"</span>:/usr/src/app -w /usr/src/app node:8 node index.js
+</div></code></pre>
+</li>
+</ol>
+
+    </body>
+    </html>
