@@ -2,7 +2,7 @@
 
 ## Ingeniería de Software III (LSI) / Actualidad Informática (ASC) - FCEQyN - UNaM
 
-Repositorio de la clase del 01/07/2020
+Repositorio de la clase de gestión de entornos.
 
 El contenido de este repositorio es el que se ha usado para el demo ejecutado en clase.
 En los diferentes archivos de instrucciones se encuentra el detalle de los pasos ejecutados.

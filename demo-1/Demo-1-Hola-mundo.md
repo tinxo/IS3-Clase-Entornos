@@ -28,7 +28,7 @@ Qué hicimos ahí?
 
 En qué resulta todo eso?
 
-Tenemos python ejecutándose en una versión (_3.8.0 en este caso_) idéntica en todas las estaciones de trabajo de los _devs_. Pero esto es muy básico, veamos algo más elaborado.
+Tenemos python ejecutándose en una versión (_3.x en este caso_) idéntica en todas las estaciones de trabajo de los _devs_. Pero esto es muy básico, veamos algo más elaborado.
 
 ---
 

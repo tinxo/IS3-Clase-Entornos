@@ -58,5 +58,5 @@ Paso a paso:
 5. Se cierra la ventana de edición y se procede a ejecutar el script en un contenedor de la imagen oficial de Node (según explica la documentación en [GitHub](https://github.com/nodejs/docker-node/blob/master/README.md#how-to-use-this-image)):
 
     ~~~ bash
-    docker run -it --rm --name my-running-script -v "$PWD":/usr/src/app -w /usr/src/app node:8 node index.js
+    docker run -it --rm --name my-running-script -v "$PWD":/usr/src/app -w /usr/src/app node:apline node index.js
     ~~~
