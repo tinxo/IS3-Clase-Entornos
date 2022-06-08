@@ -12,10 +12,16 @@ La idea es ejecutar un "Hola mundo" usando python desde un contenedor docker. No
 
 ### Ejemplo A (el más básico)
 
-Abrir una terminal y escribir:
+Abrir una terminal y escribir (internet):
 
 ~~~ bash
     docker run --rm -it python:3 python
+~~~
+
+Ahora en la misma terminal de antes ejecutar (local):
+
+~~~ bash
+docker run --rm -it 192.168.0.15:5000/python:3 python
 ~~~
 
 Qué hicimos ahí?
@@ -40,7 +46,7 @@ Generar un archivo **hola.py** con el siguiente contenido:
 print('Hola mundo!')
 ~~~
 
-Ahora en la misma terminal de antes ejecutar:
+Ahora en la misma terminal de antes ejecutar (internet):
 
 ~~~ bash
 docker run --rm -it -v $(pwd):/src python:3 python /src/hola.py
