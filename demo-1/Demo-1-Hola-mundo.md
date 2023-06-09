@@ -15,7 +15,7 @@ La idea es ejecutar un "Hola mundo" usando python desde un contenedor docker. No
 Abrir una terminal y escribir (internet):
 
 ~~~ bash
-    docker run --rm -it python:3 python
+docker run --rm -it python:3 python
 ~~~
 
 Ahora en la misma terminal de antes ejecutar (local):

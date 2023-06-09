@@ -33,7 +33,7 @@ Paso a paso:
 5. Se cierra la ventana de edición y se procede a ejecutar el script en un contenedor de la imagen oficial de PHP (según explica la documentación):
 
     ~~~ bash
-    docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:7.4-cli php index.php
+    docker run -it --rm --name my-running-script -v "$PWD":/usr/src/myapp -w /usr/src/myapp php:8.2-cli php index.php
     ~~~
 
 ---

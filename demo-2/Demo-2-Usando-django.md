@@ -9,7 +9,7 @@
 
 ### Descripción del ejemplo
 
-La idea es ejecutar un "Hola mundo" usando python desde un contenedor docker pero en este caso utilizando un framework de desarrollo web como es [Django](https://www.djangoproject.com/).
+La idea es ejecutar un "Hola mundo" usando python desde un contenedor docker pero en este caso ut...ilizando un framework de desarrollo web como es [Django](https://www.djangoproject.com/).
 De nuevo, no tiene mayor complejidad pero sirve para tener una idea básica de la dinámica de trabajo cuando estamos en un escenario como este.
 
 ### Generando una imagen
@@ -48,7 +48,7 @@ Descripción del comando:
 * `-t django` es el parámetro a utilizar para definir el nombre de la imagen a crear.
 * `.` es la indicación de la ubicación del Dockerfile que genera la imagen.
 
-Con la imagen generada se puede pasar a ejecutarla, pero en este caso se deberá hacer con el siguiente comando:
+Con la imagen generada se puede pasar a ejecutarla, pero en este caso se deberá hacer desde la ubicación donde se haya clonado el **proyecto de ejemplo** y mediante con el siguiente comando:
 
 ~~~ bash
 docker run --rm -it -v $(pwd):/src -p 8000:8000 django python manage.py runserver 0.0.0.0:8000
